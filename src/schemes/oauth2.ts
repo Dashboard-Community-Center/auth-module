@@ -303,10 +303,20 @@ export class Oauth2Scheme<
 
   logout(): void {
     if (this.options.endpoints.logout) {
+      let myToken = ''
+      if (this.token.get().includes('Bearer')) {
+        myToken = this.token.get().substring(7);
+      }
+      
       const opts = {
+        post_logout_redirect_uri: this.logoutRedirectURI,
+        id_token_hint: myToken
+      };
+      
+      /*const opts = {
         client_id: this.options.clientId + '',
         logout_uri: this.logoutRedirectURI
-      }
+      }*/
       const url = this.options.endpoints.logout + '?' + encodeQuery(opts)
       window.location.replace(url)
     }
