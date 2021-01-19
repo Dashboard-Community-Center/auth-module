@@ -1241,9 +1241,14 @@ class Oauth2Scheme extends BaseScheme {
   }
   logout() {
     if (this.options.endpoints.logout) {
+      let myToken = this.token.get()
+      if (myToken.includes('Bearer')) {
+        myToken = myToken.substring(7);
+      }
+      
       const opts = {
-        client_id: this.options.clientId + "",
-        logout_uri: this.logoutRedirectURI
+        post_logout_redirect_uri: this.logoutRedirectURI,
+        id_token_hint: myToken
       };
       const url = this.options.endpoints.logout + "?" + encodeQuery(opts);
       window.location.replace(url);

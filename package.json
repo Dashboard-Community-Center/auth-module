@@ -1,8 +1,11 @@
 {
-  "name": "@Dashboard-Community-Center/auth-next",
-  "version": "5.0.0",
+  "name": "@alejeune/auth-next",
+  "version": "5.0.1",
   "description": "Authentication module for Nuxt.js",
-  "repository": "nuxt-community/auth-module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuxt-community/auth-module.git"
+  },
   "license": "MIT",
   "sideEffects": "false",
   "exports": {
@@ -90,5 +93,14 @@
   },
   "peerDependencies": {
     "vue": "*"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/nuxt-community/auth-module/issues"
+  },
+  "homepage": "https://github.com/nuxt-community/auth-module#readme",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "author": "Arnaud Lejeune"
 }
