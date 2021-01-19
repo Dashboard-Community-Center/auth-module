@@ -303,9 +303,9 @@ export class Oauth2Scheme<
 
   logout(): void {
     if (this.options.endpoints.logout) {
-      let myToken = ''
-      if (this.token.get().includes('Bearer')) {
-        myToken = this.token.get().substring(7);
+      let myToken = this.token.get()
+      if (myToken.includes('Bearer')) {
+        myToken = myToken.substring(7);
       }
       
       const opts = {
